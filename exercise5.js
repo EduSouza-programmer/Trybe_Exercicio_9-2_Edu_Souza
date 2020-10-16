@@ -12,7 +12,11 @@ const numberDividedBy = (arrNumbersDividers, number) => {
 
 const promiseTest = (number) => {
   return new Promise((res, error) => (number < 8000 ? res(number) : error()))
-    .then((number) => console.log(numberDividedBy([2, 3, 5, 10], number)))
+    .then((number) => numberDividedBy([2, 3, 5, 10], number))
+    .then((arr) => {
+      console.log(`minha array gerada é: [${arr}] e a somar é:`);
+      console.log(arr.reduce((acc, num) => acc + num, 0));
+    })
     .catch(() =>
       console.log('É mais de oito mil! Essa promise deve estar quebrada!')
     );

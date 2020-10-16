@@ -55,9 +55,11 @@ Primeiro, veja o manual da API do site icanhazdadjoke.com. Ele esclarece como fa
   
   -  Tente usar Higher Order Functions! Lembre-se de que tanto uma quanto a outra recebem, como parâmetro, funções!</p>
 
-- <p><a href="#3"> :pushpin: 3.</a> Quando a promise for resolvida com sucesso, retorne o resultado da divisão desse número por 2, 3, 5 e 10 em um array.</p>
+- <p><a href="#3"> :pushpin: 3.</a> Quando a promise for resolvida com sucesso, retorne o resultado da divisão desse número por 2, 3, 5 e 10 em um array;</p>
 
-- <p><a href="#4"> :pushpin: 4.</a> Quando a Promise for rejeitada, imprima, via console.log, a frase "É mais de oito mil! Essa promise deve estar quebrada!"</p>
+- <p><a href="#4"> :pushpin: 4.</a> Quando a Promise for rejeitada, imprima, via console.log, a frase "É mais de oito mil! Essa promise deve estar quebrada!";</p>
+
+- <p><a href="#5"> :pushpin: 5.</a> Quando a Promise for bem-sucedida, encadeie nela uma segunda Promise que some os elementos do array.</p>
 
 
 ## :books: Exercícios
@@ -177,7 +179,7 @@ const sumTotalNumbers = numbersRandomArray.reduce(
 );
 
 const numberDividedBy = (arrNumbersDividers, number) => {
-  return arrNumbersDividers.map((num) => number / num);
+  return arrNumbersDividers.map((num) => Math.round(number / num));
 };
 
 const promiseTest = (number) => {
@@ -218,7 +220,7 @@ const sumTotalNumbers = numbersRandomArray.reduce(
 );
 
 const numberDividedBy = (arrNumbersDividers, number) => {
-  return arrNumbersDividers.map((num) => number / num);
+  return arrNumbersDividers.map((num) => Math.round(number / num));
 };
 
 const promiseTest = (number) => {
@@ -242,12 +244,57 @@ console.log(sumTotalNumbers);
 
 #
 
+#
+
+### 5°
+
+Quando a Promise for bem-sucedida, encadeie nela uma segunda Promise que some os elementos do array.
+
+#### Resposta:
+
+<details>
+ <summary> :pencil2: Código Javascript</summary>
+
+```js
+const numbersRandomArray = Array.from({ length: 10 }, () =>
+  Math.pow(Math.floor(Math.random() * 50 + 1), 2)
+);
+const sumTotalNumbers = numbersRandomArray.reduce(
+  (acc, number) => acc + number,
+  0
+);
+
+const numberDividedBy = (arrNumbersDividers, number) => {
+  return arrNumbersDividers.map((num) => Math.round(number / num));
+};
+
+const promiseTest = (number) => {
+  return new Promise((res, error) => (number < 8000 ? res(number) : error()))
+    .then((number) => numberDividedBy([2, 3, 5, 10], number))
+    .then((arr) => {
+      console.log(`minha array gerada é: [${arr}] e a somar é:`);
+      console.log(arr.reduce((acc, num) => acc + num, 0));
+    })
+    .catch(() =>
+      console.log('É mais de oito mil! Essa promise deve estar quebrada!')
+    );
+};
+promiseTest(sumTotalNumbers);
+console.log(sumTotalNumbers);
+```
+
+</details>
+
+<p align="right">
+    <a href="#clipboard-Sumário">
+    <img alt="Back Sumário" src="https://img.shields.io/badge/Back-Sum%C3%A1rio-orange">
+  </a>
+</p>
+
+#
+
 ## :unlock: Licença
 
 Este projeto está licenciado sob a Licença MIT - consulte [LICENSE](https://opensource.org/licenses/MIT) para maiores detalhes.
 
 
-.then((arr) => {
-      console.log(`minha array gerada é: [${arr}]`);
-      console.log(arr.reduce((acc, num) => acc + num, 0));
-    })

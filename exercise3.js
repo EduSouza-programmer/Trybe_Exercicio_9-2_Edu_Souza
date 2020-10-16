@@ -7,7 +7,7 @@ const sumTotalNumbers = numbersRandomArray.reduce(
 );
 
 const numberDividedBy = (arrNumbersDividers, number) => {
-  return arrNumbersDividers.map((num) => number / num);
+  return arrNumbersDividers.map((num) => Math.round(number / num));
 };
 
 const promiseTest = (number) => {
