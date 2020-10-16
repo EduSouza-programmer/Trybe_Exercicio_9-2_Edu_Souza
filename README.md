@@ -57,6 +57,8 @@ Primeiro, veja o manual da API do site icanhazdadjoke.com. Ele esclarece como fa
 
 - <p><a href="#3"> :pushpin: 3.</a> Quando a promise for resolvida com sucesso, retorne o resultado da divisão desse número por 2, 3, 5 e 10 em um array.</p>
 
+- <p><a href="#4"> :pushpin: 4.</a> Quando a Promise for rejeitada, imprima, via console.log, a frase "É mais de oito mil! Essa promise deve estar quebrada!"</p>
+
 
 ## :books: Exercícios
 
@@ -199,13 +201,35 @@ console.log(sumTotalNumbers);
 
 ### 4°
 
+Quando a Promise for rejeitada, imprima, via console.log, a frase "É mais de oito mil! Essa promise deve estar quebrada!".
+
 #### Resposta:
 
 <details>
  <summary> :pencil2: Código Javascript</summary>
 
 ```js
+const numbersRandomArray = Array.from({ length: 10 }, () =>
+  Math.pow(Math.floor(Math.random() * 50 + 1), 2)
+);
+const sumTotalNumbers = numbersRandomArray.reduce(
+  (acc, number) => acc + number,
+  0
+);
 
+const numberDividedBy = (arrNumbersDividers, number) => {
+  return arrNumbersDividers.map((num) => number / num);
+};
+
+const promiseTest = (number) => {
+  return new Promise((res, error) => (number < 8000 ? res(number) : error()))
+    .then((number) => console.log(numberDividedBy([2, 3, 5, 10], number)))
+    .catch(() =>
+      console.log('É mais de oito mil! Essa promise deve estar quebrada!')
+    );
+};
+promiseTest(sumTotalNumbers);
+console.log(sumTotalNumbers);
 ```
 
 </details>
@@ -221,3 +245,9 @@ console.log(sumTotalNumbers);
 ## :unlock: Licença
 
 Este projeto está licenciado sob a Licença MIT - consulte [LICENSE](https://opensource.org/licenses/MIT) para maiores detalhes.
+
+
+.then((arr) => {
+      console.log(`minha array gerada é: [${arr}]`);
+      console.log(arr.reduce((acc, num) => acc + num, 0));
+    })
