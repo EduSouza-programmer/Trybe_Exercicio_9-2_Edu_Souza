@@ -45,11 +45,64 @@ Primeiro, veja o manual da API do site icanhazdadjoke.com. Ele esclarece como fa
 
 ### :clipboard: Sumário
 
-- <p><a href="#1"> :pushpin: 1.</a> Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA;</p>
+- <p><a href="#1"> :pushpin: 1.</a> Agora vamos tentar fazer as requisições a API usando fetch. Essa função recebe dois parâmetros.
+  
+  -  O endereço para o qual a requisição será feita, ou seja, a url do serviço.
+  -   Um objeto contendo as especificações da requisição. Para essa API, atribuiremos a esse objeto as chaves method: e headers:
+  -   A partir daí, faça a piada aparecer no DOM da sua página!</p>
+
+- <p><a href="#2"> :pushpin: 2.</a> Agora, um passo para trás: vamos fazer, passo a passo, uma Promise. Primeiramente, instancie uma Promise. Dentro dela, você deve produzir um array com dez números aleatórios de 1 a 50 e elevá-los todos ao quadrado. Se a soma de todos esses elementos for inferior a 8000, a promise deve ser resolvida. Caso contrário, ela deve ser rejeitada. Acresça um then e um catch à Promise com qualquer coisa dentro só para que o código funcione.
+  
+  -  Tente usar Higher Order Functions! Lembre-se de que tanto uma quanto a outra recebem, como parâmetro, funções!</p>
+
 
 ## :books: Exercícios
 
 ### 1°
+
+#### Resposta:
+
+<details>
+ <summary> :pencil2: Código Javascript</summary>
+
+```js
+const API_URL = 'https://icanhazdadjoke.com/';
+const myObject = {
+  method: 'GET',
+  headers: { Accept: 'application/json' },
+};
+
+const fetchJoke = (url, config) => {
+  return fetch(url, config)
+    .then((resp) => resp.json())
+    .then((data) => data.joke);
+};
+
+const jokeContainer = document.querySelector('#jokeContainer');
+
+window.onload = async () => {
+  jokeContainer.innerHTML = await fetchJoke(API_URL, myObject);
+};
+```
+
+</details>
+
+<p align="right">
+   <a href="https://edusouza-programmer.github.io/Trybe_Exercicio_9-2_Edu_Souza//parte-1/challenge_1-o_modelo_boxer.html">
+    <img alt="Go index.html" src="https://img.shields.io/badge/Go-index.html-orange">
+    </a>&nbsp;
+    <a href="#clipboard-Sumário">
+    <img alt="Back Sumário" src="https://img.shields.io/badge/Back-Sum%C3%A1rio-orange">
+  </a>
+</p>
+
+#
+
+### 2°
+
+gora, um passo para trás: vamos fazer, passo a passo, uma Promise. Primeiramente, instancie uma Promise. Dentro dela, você deve produzir um array com dez números aleatórios de 1 a 50 e elevá-los todos ao quadrado. Se a soma de todos esses elementos for inferior a 8000, a promise deve ser resolvida. Caso contrário, ela deve ser rejeitada. Acresça um then e um catch à Promise com qualquer coisa dentro só para que o código funcione.
+  
+  -  Tente usar Higher Order Functions! Lembre-se de que tanto uma quanto a outra recebem, como parâmetro, funções!
 
 #### Resposta:
 
@@ -63,9 +116,48 @@ Primeiro, veja o manual da API do site icanhazdadjoke.com. Ele esclarece como fa
 </details>
 
 <p align="right">
-   <a href="https://edusouza-programmer.github.io/Trybe_Exercicio_3-3_Edu_Souza//parte-1/challenge_1-o_modelo_boxer.html">
-    <img alt="Go index.html" src="https://img.shields.io/badge/Go-index.html-orange">
-    </a>&nbsp;
+    <a href="#clipboard-Sumário">
+    <img alt="Back Sumário" src="https://img.shields.io/badge/Back-Sum%C3%A1rio-orange">
+  </a>
+</p>
+
+#
+
+### 3°
+
+#### Resposta:
+
+<details>
+ <summary> :pencil2: Código Javascript</summary>
+
+```js
+
+```
+
+</details>
+
+<p align="right">
+    <a href="#clipboard-Sumário">
+    <img alt="Back Sumário" src="https://img.shields.io/badge/Back-Sum%C3%A1rio-orange">
+  </a>
+</p>
+
+#
+
+### 4°
+
+#### Resposta:
+
+<details>
+ <summary> :pencil2: Código Javascript</summary>
+
+```js
+
+```
+
+</details>
+
+<p align="right">
     <a href="#clipboard-Sumário">
     <img alt="Back Sumário" src="https://img.shields.io/badge/Back-Sum%C3%A1rio-orange">
   </a>
