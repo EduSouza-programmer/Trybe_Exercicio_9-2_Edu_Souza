@@ -55,6 +55,8 @@ Primeiro, veja o manual da API do site icanhazdadjoke.com. Ele esclarece como fa
   
   -  Tente usar Higher Order Functions! Lembre-se de que tanto uma quanto a outra recebem, como parâmetro, funções!</p>
 
+- <p><a href="#3"> :pushpin: 3.</a> Quando a promise for resolvida com sucesso, retorne o resultado da divisão desse número por 2, 3, 5 e 10 em um array.</p>
+
 
 ## :books: Exercícios
 
@@ -156,13 +158,33 @@ console.log(sumTotalNumbers);
 
 ### 3°
 
+Quando a promise for resolvida com sucesso, retorne o resultado da divisão desse número por 2, 3, 5 e 10 em um array.
+
 #### Resposta:
 
 <details>
  <summary> :pencil2: Código Javascript</summary>
 
 ```js
+const numbersRandomArray = Array.from({ length: 10 }, () =>
+  Math.pow(Math.floor(Math.random() * 50 + 1), 2)
+);
+const sumTotalNumbers = numbersRandomArray.reduce(
+  (acc, number) => acc + number,
+  0
+);
 
+const numberDividedBy = (arrNumbersDividers, number) => {
+  return arrNumbersDividers.map((num) => number / num);
+};
+
+const promiseTest = (number) => {
+  return new Promise((res, error) => (number < 8000 ? res(number) : error()))
+    .then((number) => console.log(numberDividedBy([2, 3, 5, 10], number)))
+    .catch(() => console.log('O numero foi MAIOR que 8000-->REJEITADA'));
+};
+promiseTest(sumTotalNumbers);
+console.log(sumTotalNumbers);
 ```
 
 </details>
