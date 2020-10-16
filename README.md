@@ -94,7 +94,7 @@ window.onload = async () => {
 </details>
 
 <p align="right">
-   <a href="https://edusouza-programmer.github.io/Trybe_Exercicio_9-2_Edu_Souza//parte-1/challenge_1-o_modelo_boxer.html">
+   <a href="https://edusouza-programmer.github.io/Trybe_Exercicio_9-2_Edu_Souza/exercise.html">
     <img alt="Go index.html" src="https://img.shields.io/badge/Go-index.html-orange">
     </a>&nbsp;
     <a href="#clipboard-Sumário">

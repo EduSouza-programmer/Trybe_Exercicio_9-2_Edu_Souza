@@ -11,7 +11,6 @@
   }
   return outputArray;
 }; */
-
 // const numbersRandom = randomNumberGeneratorForArray(10, 50);
 // const sumTotalNumbers = numbersRandom.reduce((acc, number) => acc + number, 0);
 
